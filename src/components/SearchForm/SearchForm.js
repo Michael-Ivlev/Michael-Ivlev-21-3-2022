@@ -75,7 +75,7 @@ function SearchForm(props) {
     // testArray.forEach((item) => console.log(item));
     // console.log(userSelectedLocation);
     if (error === false && userSelectedLocation.length > 0) {
-      const found = autoCompleteArray.find(
+      const found = testArray.find(
         (element) => element.LocalizedName === userSelectedLocation
       );
       dispatch(
@@ -99,11 +99,11 @@ function SearchForm(props) {
       setError(false);
     }
 
-    if (inputValue.length > 3 && error === false) {
-      accuWeatherApi.getAutoComplite(inputValue).then((res) => {
-        setAutoCompleteArray(res);
-      });
-    }
+    // if (inputValue.length > 3 && error === false) {                     //enable when not in test
+    //   accuWeatherApi.getAutoComplite(inputValue).then((res) => {
+    //     setAutoCompleteArray(res);
+    //   });
+    // }
   }, [inputValue, error]);
 
   return (
@@ -112,7 +112,7 @@ function SearchForm(props) {
         fullWidth
         onChange={(event) => setUserSelectedLocation(event.target.innerText)}
         id="search-form"
-        options={autoCompleteArray.map((option) => {
+        options={testArray.map((option) => {
           //   return option;
           return option.LocalizedName;
         })}

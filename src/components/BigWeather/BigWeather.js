@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import SmallWeather from "../SmallWeather/SmallWeather";
+import DaysCard from "../DaysCard/DaysCard";
+import { useDispatch } from "react-redux";
 import "./BigWeather.css";
+import { changeFavoriteCards } from "../../features/favoriteCards";
+import Button from "@mui/material/Button";
 
 const testArray = {
   Headline: {
@@ -181,24 +184,49 @@ const testArray = {
 };
 
 function BigWeather() {
+  const dispatch = useDispatch();
   const weathertoShow = useSelector((state) => state.weatherToShow.value);
-  console.log(weathertoShow.days);
+  console.log(weathertoShow);
+
+  const onSave = () => {
+    dispatch(
+      changeFavoriteCards({
+        name: weathertoShow.current.name,
+        key: weathertoShow.current.key,
+      })
+    );
+  };
   return (
     <div className="bigweather">
       <div className="current-weather">
-        <h2 className="current-weather__cityname">
-          {weathertoShow.current.name}
-        </h2>
-        <p className="current-weather__temp">{weathertoShow.current.temp}</p>
-        <p className="current-weather__temp">{weathertoShow.current.text}</p>
+        <div className="current-weather__container">
+          <h2 className="current-weather__cityname">
+            {weathertoShow.current.name}
+          </h2>
+          <p className="current-weather__temp">{weathertoShow.current.temp}°</p>
+          <p className="current-weather__text">{weathertoShow.current.text}</p>
+        </div>
+        <div className="current-weather__container">
+          <img
+            className="current-weather__icon"
+            src={`icons/${weathertoShow.current.icon}.PNG`}
+            alt="Weather Icon"
+          />
+          <Button onClick={onSave} variant="outlined">
+            Save
+          </Button>
+        </div>
       </div>
+      <h3 className="days-weather__title">Daily</h3>
       <div className="days-weather">
         {weathertoShow.days.map((item) => {
           return (
-            <SmallWeather
-              title={item.date}
+            <DaysCard
+              day={item.date}
               tempMax={item.maximum}
+              tempMin={item.minimum}
               text={item.text}
+              icon={item.icon}
             />
           );
         })}

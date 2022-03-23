@@ -1,0 +1,28 @@
+.days-card {
+  padding: 10px 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  justify-content: flex-start;
+}
+.days-card__title {
+  margin: 0;
+  color: #323642;
+  font-size: 25px;
+}
+.days-card__temp {
+  margin: 0;
+}
+
+.days-card__text {
+  text-align: center;
+  font-size: 15px;
+  margin: 0;
+  color: #9b9ea5;
+}
+
+.days-card__icon {
+  width: 100px;
+}

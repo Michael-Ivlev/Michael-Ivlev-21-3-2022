@@ -7,6 +7,7 @@ class AccuWeatherApi extends Component {
   }
 
   _getResponseData(res) {
+    console.log(res);
     if (!res.ok) {
       return Promise.reject(`Error: ${res.status}`);
     }

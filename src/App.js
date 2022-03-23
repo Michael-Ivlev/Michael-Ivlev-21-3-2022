@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import dateFormat from "dateformat";
 import "./App.css";
 import Main from "./components/Main/Main";
@@ -7,12 +8,13 @@ import accuWeatherApi from "./utils/accuweatherApi";
 import { useDispatch } from "react-redux";
 import { chnageWeatherDays } from "./features/weatherToShow";
 import { chnageWeatherCurrent } from "./features/weatherToShow";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const dispatch = useDispatch();
   const userSelectionKey = useSelector((state) => state.userSelectionKey.value);
   const weathertoShow = useSelector((state) => state.weatherToShow.value);
-
+  // enable when not on test
   useEffect(() => {
     if (userSelectionKey.key !== "") {
       accuWeatherApi.get5DaysWeather(userSelectionKey.key).then((res) => {
@@ -22,6 +24,7 @@ function App() {
             minimum: day.Temperature.Minimum.Value,
             maximum: day.Temperature.Maximum.Value,
             text: day.Day.IconPhrase,
+            icon: day.Day.Icon,
           };
         });
         dispatch(chnageWeatherDays(formatArray));
@@ -33,13 +36,14 @@ function App() {
           key: userSelectionKey.key,
           text: res[0].WeatherText,
           temp: res[0].Temperature.Metric.Value,
+          icon: res[0].WeatherIcon,
         };
         dispatch(chnageWeatherCurrent(format));
       });
     }
   }, [userSelectionKey]);
 
-  console.log(userSelectionKey);
+  // console.log(userSelectionKey);
 
   // const testcurrent = {
   //   name: "Telanaipura",
@@ -89,7 +93,12 @@ function App() {
 
   return (
     <div className="App">
-      <Main />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

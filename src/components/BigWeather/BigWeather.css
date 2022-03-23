@@ -1,4 +1,48 @@
 .days-weather {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.current-weather {
+  background: rgb(0, 84, 108);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 84, 108, 1) 0%,
+    rgba(1, 46, 79, 1) 100%
+  );
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.current-weather__cityname {
+  font-size: 30px;
+  color: #ffffffaf;
+  margin: 0;
+}
+
+.current-weather__temp {
+  font-size: 50px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.current-weather__text {
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.current-weather__icon {
+  width: 200px;
+}
+
+.days-weather__title {
+  margin: 0;
+  color: #323642;
+  margin-bottom: 10px;
 }
