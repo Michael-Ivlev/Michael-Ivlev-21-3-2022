@@ -14,7 +14,6 @@ export const favoriteCardsSlice = createSlice({
         state.value.push(action.payload);
       }
       if (findIndex > -1) {
-        console.log(findIndex);
         state.value.splice(findIndex, 1);
       }
     },

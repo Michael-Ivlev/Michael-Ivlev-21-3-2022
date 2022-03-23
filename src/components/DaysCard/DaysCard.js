@@ -10,10 +10,17 @@ import { useDispatch } from "react-redux";
 import { changeFavoriteCards } from "../../features/favoriteCards";
 import { useSelector } from "react-redux";
 import "./DaysCard.css";
+import { styled } from "@mui/system";
 
 export default function DaysCard(props) {
+  const styledPaper = styled(
+    Paper,
+    {}
+  )({
+    borderradius: "15px",
+  });
   return (
-    <Paper className="days-card" elevation={0}>
+    <div className="days-card" elevation={0}>
       <img
         className="days-card__icon"
         src={`icons/${props.icon}.PNG`}
@@ -24,6 +31,6 @@ export default function DaysCard(props) {
       <p className="days-card__temp">{`${props.tempMin}° / ${props.tempMax}°`}</p>
 
       <p className="days-card__text">{props.text}</p>
-    </Paper>
+    </div>
   );
 }

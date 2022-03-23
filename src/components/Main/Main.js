@@ -1,16 +1,22 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import SearchForm from "../SearchForm/SearchForm";
 import BigWeather from "../BigWeather/BigWeather";
+
 import { Link } from "react-router-dom";
+
 import "./Main.css";
 
 function Main() {
+  const userSelectionKey = useSelector((state) => state.userSelectionKey.value);
+
   return (
     <main className="main">
-      <h1 className="main__title">Get the Weather</h1>
-      <Link to="/favorites">About</Link>
+      <Link className="main__link" to="/favorites">
+        Favorites
+      </Link>
       <SearchForm />
-      <BigWeather />
+      {userSelectionKey.key === "" ? null : <BigWeather />}
     </main>
   );
 }
