@@ -4,8 +4,8 @@ export const userSelectionKeySlice = createSlice({
   name: "userSelectionKey",
   initialState: {
     value: {
-      name: "",
-      key: "",
+      name: "Tel Aviv",
+      key: "215854",
     },
   },
   reducers: {

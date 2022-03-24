@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import Navbar from "../Navbar/Navbar";
 
 const testArray = {
   Headline: {
@@ -203,7 +204,7 @@ function BigWeather() {
       setIsSaved(true);
     }
     return null;
-  }, [favoriteCards]);
+  }, [favoriteCards, weathertoShow]);
 
   const onSave = () => {
     dispatch(
@@ -213,6 +214,7 @@ function BigWeather() {
       })
     );
   };
+
   return (
     <div className="bigweather">
       <div className="current-weather">

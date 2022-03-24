@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import CardFavorite from "../CardFavorite/CardFavorite";
-import SavedCard from "../SavedCard/SavedCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Favorites.css";
+import Navbar from "../Navbar/Navbar";
 
 function Favorites() {
   const favoriteCards = useSelector((state) => state.favoriteCards.value);
@@ -12,13 +13,15 @@ function Favorites() {
 
   return (
     <div className="favorites">
-      <Link to="/">About</Link>
-      <h1>Favorites</h1>
-      {favoriteCards === []
-        ? null
-        : favoriteCards.map((card) => {
-            return <CardFavorite name={card.name} id={card.key} />;
-          })}
+      <Navbar linkName="Home" link="/" />
+      <h1 className="favorites__title">Favorites</h1>
+      <div className="favorites__cards-container">
+        {favoriteCards === []
+          ? null
+          : favoriteCards.map((card) => {
+              return <CardFavorite name={card.name} id={card.key} />;
+            })}
+      </div>
     </div>
   );
 }

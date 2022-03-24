@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import userSelectionKeyReducer from "./features/userSelectionKey";
 import weatherToShowReducer from "./features/weatherToShow";
 import favoriteCardsReducer from "./features/favoriteCards";
-
 const store = configureStore({
   reducer: {
     userSelectionKey: userSelectionKeyReducer,

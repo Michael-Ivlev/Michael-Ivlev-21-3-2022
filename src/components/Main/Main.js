@@ -6,15 +6,14 @@ import BigWeather from "../BigWeather/BigWeather";
 import { Link } from "react-router-dom";
 
 import "./Main.css";
+import Navbar from "../Navbar/Navbar";
 
 function Main() {
   const userSelectionKey = useSelector((state) => state.userSelectionKey.value);
 
   return (
     <main className="main">
-      <Link className="main__link" to="/favorites">
-        Favorites
-      </Link>
+      <Navbar linkName="Favorites" link="/favorites" />
       <SearchForm />
       {userSelectionKey.key === "" ? null : <BigWeather />}
     </main>

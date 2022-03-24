@@ -20,7 +20,7 @@ export default function DaysCard(props) {
     borderradius: "15px",
   });
   return (
-    <div className="days-card" elevation={0}>
+    <div className="days-card">
       <img
         className="days-card__icon"
         src={`icons/${props.icon}.PNG`}

@@ -17,9 +17,13 @@ export const favoriteCardsSlice = createSlice({
         state.value.splice(findIndex, 1);
       }
     },
+    initialFavoriteCards: (state, action) => {
+      state.value = action.payload;
+    },
   },
 });
 
 export const { changeFavoriteCards } = favoriteCardsSlice.actions;
+export const { initialFavoriteCards } = favoriteCardsSlice.actions;
 
 export default favoriteCardsSlice.reducer;
