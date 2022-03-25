@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CardFavorite from "../CardFavorite/CardFavorite";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import "./Favorites.css";
 import Navbar from "../Navbar/Navbar";
 
 function Favorites() {
   const favoriteCards = useSelector((state) => state.favoriteCards.value);
-  useEffect(() => {
-    console.log(favoriteCards);
-  }, []);
+  const favoriteCardsRender = useSelector(
+    (state) => state.favoriteCardsRender.value
+  );
 
   return (
     <div className="favorites">
@@ -18,8 +17,17 @@ function Favorites() {
       <div className="favorites__cards-container">
         {favoriteCards === []
           ? null
-          : favoriteCards.map((card) => {
-              return <CardFavorite name={card.name} id={card.key} />;
+          : favoriteCardsRender.map((card) => {
+              console.log(card.name);
+              return (
+                <CardFavorite
+                  id={card.id}
+                  name={card.name}
+                  WeatherText={card.WeatherText}
+                  WeatherIcon={card.WeatherIcon}
+                  Temperature={card.Temperature.Metric.Value}
+                />
+              );
             })}
       </div>
     </div>

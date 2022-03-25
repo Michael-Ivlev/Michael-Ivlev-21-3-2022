@@ -1,17 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "./components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import userSelectionKeyReducer from "./features/userSelectionKey";
 import weatherToShowReducer from "./features/weatherToShow";
 import favoriteCardsReducer from "./features/favoriteCards";
+import favoriteCardsRenderReducer from "./features/favoriteCardsRender";
 const store = configureStore({
   reducer: {
     userSelectionKey: userSelectionKeyReducer,
     weatherToShow: weatherToShowReducer,
     favoriteCards: favoriteCardsReducer,
+    favoriteCardsRender: favoriteCardsRenderReducer,
   },
 });
 
