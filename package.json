@@ -2,7 +2,7 @@
   "name": "get_the_weather",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "https://michael-ivlev.github.io/Michael-Ivlev-21-3-2022",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
