@@ -16,7 +16,7 @@ class AccuWeatherApi extends Component {
 
   getAutoComplite(word) {
     return fetch(
-      `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${this.apiKey}&q=${word}&language=en-us`,
+      `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${this.apiKey}&q=${word}&language=en-us`,
       {
         method: "GET",
       }
@@ -25,7 +25,7 @@ class AccuWeatherApi extends Component {
 
   get5DaysWeather(Key) {
     return fetch(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${Key}?apikey=${this.apiKey}&metric=true`,
+      `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${Key}?apikey=${this.apiKey}&metric=true`,
       {
         method: "GET",
       }
@@ -34,7 +34,7 @@ class AccuWeatherApi extends Component {
 
   getCurrentWeather(Key) {
     return fetch(
-      `http://dataservice.accuweather.com/currentconditions/v1/${Key}?apikey=${this.apiKey}`,
+      `https://dataservice.accuweather.com/currentconditions/v1/${Key}?apikey=${this.apiKey}`,
       {
         method: "GET",
       }
