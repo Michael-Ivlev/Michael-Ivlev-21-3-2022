@@ -16,6 +16,22 @@ function App() {
             path="/"
             element={
               <>
+                <Main /> <Footer />
+              </>
+            }
+          >
+            <Route path="*" element={<Main />} />
+          </Route>
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <GlobalStateInitialSetters />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
                 <Main />
                 <Footer />
               </>
@@ -23,7 +39,7 @@ function App() {
           />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
