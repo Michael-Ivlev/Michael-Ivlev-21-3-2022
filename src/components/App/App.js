@@ -20,26 +20,11 @@ function App() {
               </>
             }
           >
+            <Route path="favorites" element={<Favorites />} />
             <Route path="*" element={<Main />} />
           </Route>
-          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </BrowserRouter>
-      {/* <GlobalStateInitialSetters />
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Main />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
-      </BrowserRouter> */}
     </div>
   );
 }
