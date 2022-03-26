@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Main from "../Main/Main";
 import Favorites from "../Favorites/Favorites";
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStateInitialSetters />
-      <BrowserRouter basename="/Michael-Ivlev-21-3-2022">
+      <HashRouter>
         <Routes>
           <Route
             path="/"
@@ -24,7 +24,7 @@ function App() {
             <Route path="*" element={<Main />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
