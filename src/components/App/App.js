@@ -19,10 +19,8 @@ function App() {
                 <Main /> <Footer />
               </>
             }
-          >
-            <Route path="favorites" element={<Favorites />} />
-            <Route path="*" element={<Main />} />
-          </Route>
+          ></Route>
+          <Route path="favorites" element={<Favorites />} />
         </Routes>
       </HashRouter>
     </div>
