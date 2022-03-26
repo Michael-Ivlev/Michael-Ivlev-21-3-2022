@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Michael-Ivlev-21-3-2022/static/css/main.73803d5d.css",
-    "main.js": "/Michael-Ivlev-21-3-2022/static/js/main.1ac8b7d6.js",
-    "static/js/787.a9a419e6.chunk.js": "/Michael-Ivlev-21-3-2022/static/js/787.a9a419e6.chunk.js",
-    "static/media/waves_weather.svg": "/Michael-Ivlev-21-3-2022/static/media/waves_weather.54d4e07630417cfd128e.svg",
-    "index.html": "/Michael-Ivlev-21-3-2022/index.html",
-    "main.73803d5d.css.map": "/Michael-Ivlev-21-3-2022/static/css/main.73803d5d.css.map",
-    "main.1ac8b7d6.js.map": "/Michael-Ivlev-21-3-2022/static/js/main.1ac8b7d6.js.map",
-    "787.a9a419e6.chunk.js.map": "/Michael-Ivlev-21-3-2022/static/js/787.a9a419e6.chunk.js.map"
+    "main.css": "/static/css/main.6a83c42f.css",
+    "main.js": "/static/js/main.77c1c633.js",
+    "static/js/787.a9a419e6.chunk.js": "/static/js/787.a9a419e6.chunk.js",
+    "static/media/waves_weather.svg": "/static/media/waves_weather.54d4e07630417cfd128e.svg",
+    "index.html": "/index.html",
+    "main.6a83c42f.css.map": "/static/css/main.6a83c42f.css.map",
+    "main.77c1c633.js.map": "/static/js/main.77c1c633.js.map",
+    "787.a9a419e6.chunk.js.map": "/static/js/787.a9a419e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73803d5d.css",
-    "static/js/main.1ac8b7d6.js"
+    "static/css/main.6a83c42f.css",
+    "static/js/main.77c1c633.js"
   ]
 }
