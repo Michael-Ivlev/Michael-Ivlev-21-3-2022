@@ -9,7 +9,7 @@ The app UI is **responsive** for all screen sizes
 - Redux
 - UI library: material UI
 
-the `GlobalStateInitialSetters.js` is used to initialize all the global states  
+The `GlobalStateInitialSetters.js` is used to initialize all the global states  
 with the correct data, and to manipulate the data while the events change  
 using `useEffect` hooks  
 
