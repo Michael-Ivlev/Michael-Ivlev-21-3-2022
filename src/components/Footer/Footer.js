@@ -5,8 +5,7 @@ function Footer() {
   return (
     <div className="footer">
       <p>
-        Build By Michael Ivlev{" "}
-        <a href="https://github.com/Michael-Ivlev/">GitHub</a>
+        By Michael Ivlev <a href="https://github.com/Michael-Ivlev/">GitHub</a>
       </p>
     </div>
   );

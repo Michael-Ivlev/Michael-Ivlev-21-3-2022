@@ -42,7 +42,7 @@ class AccuWeatherApi extends Component {
 }
 
 const accuWeatherApi = new AccuWeatherApi({
-  apiKey: "WjDSDNoqheAilzpUDpyumJUfrSGtOuaO",
+  apiKey: "boOuzhir6tiHMXOzIGC51NYGKzpoDSHy",
 });
 
 export default accuWeatherApi;
