@@ -27,13 +27,16 @@ function GlobalStateInitialSetters() {
     const fetchWeather = async () => {
       // begin the asynchronous operations
       const promises = favoriteCards.map((card) =>
-        accuWeatherApi.getCurrentWeather(card.key).then((res) => {
-          return {
-            name: card.name,
-            id: card.key,
-            ...res[0],
-          };
-        })
+        accuWeatherApi
+          .getCurrentWeather(card.key)
+          .then((res) => {
+            return {
+              name: card.name,
+              id: card.key,
+              ...res[0],
+            };
+          })
+          .catch((err) => console.log(err))
       );
 
       // wait for all of them to complete
@@ -46,29 +49,35 @@ function GlobalStateInitialSetters() {
 
   useEffect(() => {
     if (userSelectionKey.key !== "") {
-      accuWeatherApi.get5DaysWeather(userSelectionKey.key).then((res) => {
-        const formatArray = res.DailyForecasts.map((day) => {
-          return {
-            date: dateFormat(day.Date, "dddd"),
-            minimum: day.Temperature.Minimum.Value,
-            maximum: day.Temperature.Maximum.Value,
-            text: day.Day.IconPhrase,
-            icon: day.Day.Icon,
-          };
-        });
-        dispatch(chnageWeatherDays(formatArray));
-      });
+      accuWeatherApi
+        .get5DaysWeather(userSelectionKey.key)
+        .then((res) => {
+          const formatArray = res.DailyForecasts.map((day) => {
+            return {
+              date: dateFormat(day.Date, "dddd"),
+              minimum: day.Temperature.Minimum.Value,
+              maximum: day.Temperature.Maximum.Value,
+              text: day.Day.IconPhrase,
+              icon: day.Day.Icon,
+            };
+          });
+          dispatch(chnageWeatherDays(formatArray));
+        })
+        .catch((err) => console.log(err));
 
-      accuWeatherApi.getCurrentWeather(userSelectionKey.key).then((res) => {
-        const format = {
-          name: userSelectionKey.name,
-          key: userSelectionKey.key,
-          text: res[0].WeatherText,
-          temp: res[0].Temperature.Metric.Value,
-          icon: res[0].WeatherIcon,
-        };
-        dispatch(chnageWeatherCurrent(format));
-      });
+      accuWeatherApi
+        .getCurrentWeather(userSelectionKey.key)
+        .then((res) => {
+          const format = {
+            name: userSelectionKey.name,
+            key: userSelectionKey.key,
+            text: res[0].WeatherText,
+            temp: res[0].Temperature.Metric.Value,
+            icon: res[0].WeatherIcon,
+          };
+          dispatch(chnageWeatherCurrent(format));
+        })
+        .catch((err) => console.log(err));
     }
   }, [userSelectionKey]);
 
