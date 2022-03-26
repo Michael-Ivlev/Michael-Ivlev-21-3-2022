@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStateInitialSetters />
-      <BrowserRouter>
+      <BrowserRouter basename="/Michael-Ivlev-21-3-2022">
         <Routes>
           <Route
             path="/"
