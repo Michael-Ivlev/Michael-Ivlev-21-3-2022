@@ -1,4 +1,4 @@
-# Get The Weather
+# Get The Weather 🌦
 
 This is a weather app project in which the user can interact with the app,  
 save weather locations to favorites, and see the upcoming weather for the next 5 days.  
