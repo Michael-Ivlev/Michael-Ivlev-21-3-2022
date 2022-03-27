@@ -1,3 +1,4 @@
+![App Image](https://user-images.githubusercontent.com/80426254/160233487-8cb0ce92-5650-4e8e-a4c7-8dc376ad8108.png)
 # Get The Weather 🌦
 
 This is a weather app project in which the user can interact with the app,  
