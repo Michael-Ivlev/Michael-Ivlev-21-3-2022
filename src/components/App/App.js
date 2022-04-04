@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStateInitialSetters />
-      <HashRouter> //HashRouter used to be compatible with gitHub Pages
+      <HashRouter> // HashRouter used to be compatible with gitHub Pages
         <Routes>
           <Route
             path="/"
