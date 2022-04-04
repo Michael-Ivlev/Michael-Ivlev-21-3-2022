@@ -13,7 +13,7 @@ function SearchForm(props) {
   const [autoCompleteArray, setAutoCompleteArray] = useState([]);
   const [userSelectedLocation, setUserSelectedLocation] = useState("");
   const [error, setError] = useState(false);
-  
+
   const onSubmit = () => {
     if (error === false && userSelectedLocation.length > 0) {
       // search for the element inside autoCompleteArray
@@ -31,7 +31,7 @@ function SearchForm(props) {
 
     return;
   };
-// chacking if the lengh in the input if more that 0 and check if the regex match. sets error state
+  // checking if the lengh in the input if more that 0 and check if the regex match. sets error state
   useEffect(() => {
     if (
       inputValue.length > 0 &&

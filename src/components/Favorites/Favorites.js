@@ -6,6 +6,7 @@ import Navbar from "../Navbar/Navbar";
 
 function Favorites() {
   const favoriteCards = useSelector((state) => state.favoriteCards.value);
+  // array of favorite cards to render
   const favoriteCardsRender = useSelector(
     (state) => state.favoriteCardsRender.value
   );
@@ -18,7 +19,6 @@ function Favorites() {
         {favoriteCards === []
           ? null
           : favoriteCardsRender.map((card) => {
-              console.log(card.name);
               return (
                 <CardFavorite
                   id={card.id}

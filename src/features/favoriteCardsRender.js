@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+// state that saves the favorite cards with there data from the api fetch request
 export const favoriteCardsRenderSlice = createSlice({
   name: "favoriteCardsRender",
   initialState: {

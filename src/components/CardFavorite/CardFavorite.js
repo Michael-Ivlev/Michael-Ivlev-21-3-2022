@@ -27,6 +27,7 @@ function CardFavorite(props) {
   };
 
   const onCardClick = () => {
+    // change the selected card on click to change it in the main page
     const path = "/";
     navigate(path);
     dispatch(
@@ -38,6 +39,7 @@ function CardFavorite(props) {
   };
 
   useEffect(() => {
+    // sets saved icon based on the saved cards in the global state
     const findIndex = favoriteCards.findIndex((fav) => {
       return fav.key === props.id;
     });

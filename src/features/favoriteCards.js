@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+// the user favorite cards state
 export const favoriteCardsSlice = createSlice({
   name: "favoriteCards",
   initialState: {
     value: [],
   },
   reducers: {
+    // if the key of the location exist its delete it if not adds it
     changeFavoriteCards: (state, action) => {
       const findIndex = state.value.findIndex((card) => {
         return card.key === action.payload.key;

@@ -13,6 +13,7 @@ function GlobalStateInitialSetters() {
   const userSelectionKey = useSelector((state) => state.userSelectionKey.value);
   const favoriteCards = useSelector((state) => state.favoriteCards.value);
 
+  // gets the favorite cards from localstorage if exist
   useEffect(() => {
     const localStorageFavorites = JSON.parse(
       localStorage.getItem("savedFavorites")
@@ -21,7 +22,7 @@ function GlobalStateInitialSetters() {
       return;
     }
     dispatch(initialFavoriteCards(localStorageFavorites));
-  }, []);
+  }, []); // render only once when the page loads
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -41,12 +42,13 @@ function GlobalStateInitialSetters() {
 
       // wait for all of them to complete
       const results = await Promise.all(promises);
-
+      // add the cards with there data so they can be rendered
       dispatch(initialFavoriteCardsRender(results));
     };
     fetchWeather();
   }, [favoriteCards]);
 
+  // gets the 5days weather and current weather and formats them based on userSelectionKey
   useEffect(() => {
     if (userSelectionKey.key !== "") {
       accuWeatherApi
@@ -82,6 +84,7 @@ function GlobalStateInitialSetters() {
   }, [userSelectionKey]);
 
   useEffect(() => {
+    // when favritueCards global state changes, it adds it to the localStorage for later use
     const save = favoriteCards.map((card) => {
       return {
         name: card.name,

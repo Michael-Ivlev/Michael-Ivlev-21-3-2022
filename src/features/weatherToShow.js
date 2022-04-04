@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+// state that show the current big weather to show
 export const weatherToShowSlice = createSlice({
   name: "weatherToShow",
   initialState: {

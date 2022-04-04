@@ -15,6 +15,7 @@ function BigWeather() {
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
+    // changes the value of saved if the location saved to favorite cards
     const findIndex = favoriteCards.findIndex((fav) => {
       return fav.key === weathertoShow.current.key;
     });

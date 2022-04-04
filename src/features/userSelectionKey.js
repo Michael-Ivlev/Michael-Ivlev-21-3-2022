@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+// saves the user selected key for later use
 export const userSelectionKeySlice = createSlice({
   name: "userSelectionKey",
   initialState: {
