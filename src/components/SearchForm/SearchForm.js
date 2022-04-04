@@ -13,12 +13,14 @@ function SearchForm(props) {
   const [autoCompleteArray, setAutoCompleteArray] = useState([]);
   const [userSelectedLocation, setUserSelectedLocation] = useState("");
   const [error, setError] = useState(false);
-
+  
   const onSubmit = () => {
     if (error === false && userSelectedLocation.length > 0) {
+      // search for the element inside autoCompleteArray
       const found = autoCompleteArray.find(
         (element) => element.LocalizedName === userSelectedLocation
       );
+      // when found takes the name and key and sendes them to the global state so we have key that we can use later
       dispatch(
         changeUserSelectionKey({
           name: found.LocalizedName,
