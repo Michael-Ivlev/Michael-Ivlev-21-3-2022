@@ -29,7 +29,7 @@ function SearchForm(props) {
 
     return;
   };
-
+// chacking if the lengh in the input if more that 0 and check if the regex match. sets error state
   useEffect(() => {
     if (
       inputValue.length > 0 &&
