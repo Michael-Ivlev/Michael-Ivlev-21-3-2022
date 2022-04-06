@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -13,12 +13,13 @@ function SearchForm(props) {
   const [autoCompleteArray, setAutoCompleteArray] = useState([]);
   const [userSelectedLocation, setUserSelectedLocation] = useState("");
   const [error, setError] = useState(false);
+  const fetchTimerRef = useRef("");
 
-  const onSubmit = () => {
-    if (error === false && userSelectedLocation.length > 0) {
+  const onUserLocationSelect = (locationName) => {
+    if (error === false && locationName.length > 0) {
       // search for the element inside autoCompleteArray
       const found = autoCompleteArray.find(
-        (element) => element.LocalizedName === userSelectedLocation
+        (element) => element.LocalizedName === locationName
       );
       // when found takes the name and key and sendes them to the global state so we have key that we can use later
       dispatch(
@@ -33,6 +34,7 @@ function SearchForm(props) {
   };
   // checking if the lengh in the input if more that 0 and check if the regex match. sets error state
   useEffect(() => {
+    clearTimeout(fetchTimerRef.current); // clears the timer so we can set new 300ms evry time the input changes
     if (
       inputValue.length > 0 &&
       !inputValue.match(/^[a-zA-Z$@$!%*?&#^-_. +]+$/)
@@ -42,10 +44,16 @@ function SearchForm(props) {
       setError(false);
     }
 
-    if (inputValue.length > 3 && error === false) {
-      accuWeatherApi.getAutoComplite(inputValue).then((res) => {
-        setAutoCompleteArray(res);
-      });
+    if (error === false && inputValue.length > 0) {
+      fetchTimerRef.current = setTimeout(() => {
+        // sets timeout prevent api spam ref used for clear timeout without render
+        accuWeatherApi
+          .getAutoComplite(inputValue)
+          .then((res) => {
+            setAutoCompleteArray(res);
+          })
+          .catch((err) => console.log(err));
+      }, 300);
     }
   }, [inputValue, error]);
 
@@ -53,7 +61,7 @@ function SearchForm(props) {
     <div className="searchform">
       <Autocomplete
         fullWidth
-        onChange={(event) => setUserSelectedLocation(event.target.innerText)}
+        onChange={(event) => onUserLocationSelect(event.target.innerText)}
         id="search-form"
         options={autoCompleteArray.map((option) => {
           return option.LocalizedName;
@@ -70,9 +78,6 @@ function SearchForm(props) {
           );
         }}
       />
-      <Button onClick={onSubmit} variant="contained">
-        GO
-      </Button>
     </div>
   );
 }
